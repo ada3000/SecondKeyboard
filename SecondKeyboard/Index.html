@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+    <h1>
+        <button class="sender" data-key='{"shift":false, "ctrl": false, "alt": false, "value":"1"}'>Flaps Off</button>
+        <button class="sender" data-key='{"shift":false, "ctrl": false, "alt": false, "value":"2"}'>Flaps On</button>
+        <br />
+
+        <button class="sender" data-key='{"shift":false, "ctrl": false, "alt": false, "value":"w"}'>View Front</button>
+        <button class="sender" data-key='{"shift":true, "ctrl": false, "alt": false, "value":"4"}'>View Back</button>
+
+        <br />
+
+        <button class="sender" data-key='{"shift":false, "ctrl": false, "alt": false, "value":"{F1}"}'>Engine +</button>
+        <button class="sender" data-key='{"shift":true, "ctrl": false, "alt": false, "value":"{F2}"}'>Engine -</button>
+    </h1>
+
+    <script type="text/javascript">
+        $(document).ready(function ()
+        {
+            $(".sender").click(function (ev)
+            {
+                var data = $(ev.currentTarget).data("key");
+                //var data1 = JSON.parse(data);
+                //console.debug(data1);
+                $.ajax(
+                    {
+                        method: "POST",
+                        url: "/api/keyboard",
+                        data: JSON.stringify(data),
+                        contentType: "application/json; charset=utf-8"
+                    });
+            });
+        });
+    </script>
+</body>
+</html>
