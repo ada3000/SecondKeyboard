@@ -2,23 +2,130 @@
 <html>
 <head>
     <title></title>
-	<meta charset="utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="Content/Mdl/material.min.css">
+    <link rel="stylesheet" href="Content/Mdl/fonts.css">
+
     <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <script src="Content/Mdl/material.min.js"></script>
+    <script src="Scripts/knockout-2.3.0.js"></script>
+
+    <style>
+        .demo-card-image.mdl-card {
+            width: 200px;
+            height: 200px;
+            background: url('../assets/demos/image_card.jpg') center / cover;
+        }
+
+        .demo-card-image > .mdl-card__actions {
+            height: 52px;
+            padding: 16px;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .demo-card-image__filename {
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+        }
+    </style>
+
 </head>
 <body>
-    <h1>
-        <button class="sender" data-key='{"shift":false, "ctrl": false, "alt": false, "value":"1"}'>Flaps Off</button>
-        <button class="sender" data-key='{"shift":false, "ctrl": false, "alt": false, "value":"2"}'>Flaps On</button>
-        <br />
 
-        <button class="sender" data-key='{"shift":false, "ctrl": false, "alt": false, "value":"w"}'>View Front</button>
-        <button class="sender" data-key='{"shift":true, "ctrl": false, "alt": false, "value":"4"}'>View Back</button>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <!-- Title -->
+                <span class="mdl-layout-title">Title</span>
+                <!-- Add spacer, to align navigation to the right -->
+                <div class="mdl-layout-spacer"></div>
+                <!-- Navigation. We hide it in small screens. -->
+                <!--nav class="mdl-navigation mdl-layout--large-screen-only">
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                </nav-->
 
-        <br />
+                <div class="mdl-navigation 1mdl-layout--large-screen-only mdl-tabs__tab-bar mdl-js-ripple-effect1">
+                    <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Tab 1</a>
+                    <a href="#scroll-tab-2" class="mdl-layout__tab">Tab 2</a>
+                    <a href="#scroll-tab-3" class="mdl-layout__tab">Tab 3</a>
+                    <a href="#scroll-tab-4" class="mdl-layout__tab">Tab 4</a>
+                    <a href="#scroll-tab-5" class="mdl-layout__tab">Tab 5</a>
+                    <a href="#scroll-tab-6" class="mdl-layout__tab">Tab 6</a>
+                </div>
+                
+            </div>
+        </header>
 
-        <button class="sender" data-key='{"shift":false, "ctrl": false, "alt": false, "value":"{F1}"}'>Engine +</button>
-        <button class="sender" data-key='{"shift":true, "ctrl": false, "alt": false, "value":"{F2}"}'>Engine -</button>
-    </h1>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">Title</span>
+        </div>
+        <main class="mdl-layout__content">
+            <!-- Tabs -->
+            
+
+            <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
+                <div class="page-content">
+
+                    <div class="demo-card-image mdl-card mdl-shadow--2dp mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                        <div class="mdl-card__title mdl-card--expand"></div>
+                        <div class="mdl-card__actions">
+                            <span class="demo-card-image__filename">Test Action </span>
+                        </div>
+                    </div>
+
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect">Click Me!</button>
+
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                        Button
+                    </button>
+                    <!-- Colored FAB button -->
+                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
+                        <i class="material-icons">add</i>
+                    </button>
+
+                    <h1>
+                        <button class="sender" data-key='{"shift":false, "ctrl": false, "alt": false, "value":"1"}'>Flaps Off</button>
+                        <button class="sender" data-key='{"shift":false, "ctrl": false, "alt": false, "value":"2"}'>Flaps On</button>
+                        <br />
+
+                        <button class="sender" data-key='{"shift":false, "ctrl": false, "alt": false, "value":"w"}'>View Front</button>
+                        <button class="sender" data-key='{"shift":true, "ctrl": false, "alt": false, "value":"4"}'>View Back</button>
+
+                        <br />
+
+                        <button class="sender" data-key='{"shift":false, "ctrl": false, "alt": false, "value":"{F1}"}'>Engine +</button>
+                        <button class="sender" data-key='{"shift":true, "ctrl": false, "alt": false, "value":"{F2}"}'>Engine -</button>
+                    </h1>
+
+
+                </div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="scroll-tab-2">
+                <div class="page-content"><!-- Your content goes here --></div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="scroll-tab-3">
+                <div class="page-content"><!-- Your content goes here --></div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="scroll-tab-4">
+                <div class="page-content"><!-- Your content goes here --></div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="scroll-tab-5">
+                <div class="page-content"><!-- Your content goes here --></div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="scroll-tab-6">
+                <div class="page-content"><!-- Your content goes here --></div>
+            </section>
+        </main>
+    </div>
+
+
 
     <script type="text/javascript">
         $(document).ready(function ()
